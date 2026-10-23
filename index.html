@@ -53,16 +53,19 @@
 @media(max-width:520px){.estimate-options .option-field{flex:1 1 210px}.discount-switch button{min-width:46px}}
 
 /* Final-amount adjustment controls: no line-item taxes or discounts. */
-.final-adjustments{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:0 0 17px;padding:15px;background:#f8faf9}
+/* Pricing adjustments: two neat, stacked rows with matching toggles. */
+.final-adjustments{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:0 0 17px;padding:13px;background:#f7f9f9;border:1px solid #e3e9ec;border-radius:15px}
 .final-adjustments[hidden]{display:none!important}
-.final-adjustment-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.final-adjustment-row+.final-adjustment-row{padding-top:12px;border-top:1px solid #e2e8eb}
-.final-adjustment-row .adjustment-toggle{padding-bottom:0;min-height:42px;font-size:13px;color:#233c47}
-.final-adjustment-row .option-field{flex:0 1 290px;min-width:180px}
+.final-adjustment-row{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;min-width:0;padding:14px 16px;background:#fff;border:1px solid #e0e7e9;border-radius:12px;box-shadow:0 1px 4px rgba(25,47,56,.035)}
+.final-adjustment-row+.final-adjustment-row{padding-top:14px;border-top:1px solid #e0e7e9}
+.final-adjustment-row .adjustment-toggle{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:0;min-height:32px;font-size:13px;color:#233c47;line-height:1.6}
+.final-adjustment-row .option-field{display:flex;flex-direction:column;gap:7px;flex:none;width:100%;max-width:370px;min-width:0;padding-inline-start:47px}
+.final-adjustment-row .option-field label{font-size:12px}
+.final-adjustment-row .discount-entry{width:100%}
 .final-adjustments.discount-off .discount-entry{opacity:.48;background:#eef1f2}
 .final-adjustments.discount-off .discount-switch button{cursor:not-allowed}
 .final-adjustments.discount-off input:disabled{cursor:not-allowed}
-@media(max-width:650px){.final-adjustment-row{align-items:stretch}.final-adjustment-row .option-field{flex:1 1 100%}}
+@media(max-width:650px){.final-adjustments{padding:10px}.final-adjustment-row{padding:13px 12px}.final-adjustment-row .option-field{max-width:none;padding-inline-start:0}}
 @media print{.final-adjustments{display:none!important}}
 </style>
 </head>
