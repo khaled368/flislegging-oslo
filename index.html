@@ -67,6 +67,62 @@
 .final-adjustments.discount-off input:disabled{cursor:not-allowed}
 @media(max-width:650px){.final-adjustments{padding:10px}.final-adjustment-row{padding:13px 12px}.final-adjustment-row .option-field{max-width:none;padding-inline-start:0}}
 @media print{.final-adjustments{display:none!important}}
+
+/* Sketch-inspired vertical layout v1 - preserve old catalog, reports and local prices */
+body{background:#f6f8f5}
+.topbar{background:#fff}
+.hero{background:#f0f5f1!important}
+.hero-inner{padding-top:22px!important;padding-bottom:20px!important;min-height:auto!important}
+.hero-copy h1{font-size:clamp(22px,4vw,32px)!important;line-height:1.4!important}
+.hero-copy p{font-size:12px!important;max-width:580px}
+.hero-icon{display:none!important}
+.main-content{display:flex;flex-direction:column;gap:13px;margin-top:0!important;padding-top:16px}
+.simple-settings{order:1;border-radius:16px;background:#fff;border:1px solid #e3eae5;overflow:hidden;box-shadow:0 3px 12px #142c1908}
+.simple-settings>summary{padding:16px 18px;display:flex;align-items:center;justify-content:space-between;color:#186c52;font-size:15px;font-weight:850;cursor:pointer;list-style:none}
+.simple-settings>summary::-webkit-details-marker{display:none}
+.settings-plus{background:#158365;color:white;border-radius:9px;display:grid;place-items:center;min-width:31px;min-height:31px;font-size:20px}
+.simple-settings[open] .settings-plus{background:#899698;box-shadow:inset 0 2px 5px #0003;transform:rotate(45deg)}
+.simple-settings .catalog-section{border:none;box-shadow:none;margin:0;padding:13px!important}
+.quote-section{order:2;margin:0!important;background:#fff;border:0!important;box-shadow:0 4px 18px #1a49300b!important;padding:18px!important}
+.result-section{order:3;margin:0!important}
+.backup-bar{order:4;margin:0!important}
+.notice{order:0}
+.quote-section .section-heading{margin-bottom:14px;align-items:center}
+.simple-kicker{color:#168666;font-weight:800;font-size:10px;letter-spacing:.7px}
+.quote-section .section-heading h2{color:#173e31;font-size:clamp(22px,4vw,27px);margin:3px 0}
+.quote-section .section-heading .subheading{font-size:12px}
+.simple-project{display:flex;flex-direction:column;gap:7px;color:#375f4e;font-size:13px;font-weight:850;margin-bottom:17px}
+.simple-project input{width:100%;min-height:46px;background:#fbfdfb;border:1px solid #dae7de;color:#193e32;border-radius:10px;padding:9px 13px;font:700 16px system-ui,sans-serif;outline:none}
+.simple-project input:focus,.simple-row-values input:focus{border-color:#168466;box-shadow:0 0 0 3px #16846620}
+.simple-grid-head{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;padding:0 10px 9px;font-size:11px;font-weight:850;color:#708a7a}
+.quote-list{display:flex;flex-direction:column;gap:9px}
+.simple-row{background:#f3f8f4;border:0;border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:10px}
+.simple-row-heading{display:flex;align-items:center;gap:10px}
+.simple-row-heading strong{flex:1;color:#234b3e;font-size:15px}
+.simple-index{flex:none;display:grid;place-items:center;width:31px;height:31px;border-radius:8px;background:#178365;color:#fff;font-size:14px;font-weight:900}
+.simple-delete{background:#e6eeea;color:#83938d;border:0;border-radius:8px;width:29px;height:29px;font-size:19px;cursor:pointer}
+.simple-row-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.simple-row-values label{display:flex;flex-direction:column;gap:6px;min-width:0;color:#637c6e;font-size:11px;font-weight:750}
+.simple-row-values input{width:100%;min-width:0;min-height:45px;background:#fff;border:1px solid #dae7dc;color:#183d30;border-radius:10px;padding:9px 11px;font:800 17px system-ui,sans-serif;direction:ltr;text-align:left;outline:none}
+.simple-row-amount{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#789081;font-weight:700;font-size:12px;padding-inline:2px}
+.simple-row-amount strong{font-size:17px;color:#157e5e;font-weight:900;direction:ltr}
+.btn.btn-dark,.btn.btn-gold,.btn.btn-outline,.bottom-actions .btn{background:#168466!important;color:#fff!important;border-color:#168466!important;box-shadow:none!important}
+.btn:active,.lang-btn:active,.chip:active,.icon-button:active,.discount-switch button:active,.measure-switch button:active{transform:translateY(2px);background:#919a9c!important;color:#fff!important;box-shadow:inset 0 2px 5px #20342f55!important}
+.lang-btn.active,.chip.active,.discount-switch button.active,.measure-switch button.active{background:#818d91!important;color:#fff!important;box-shadow:inset 0 2px 6px #1e3b3840!important}
+.toggle-option input:checked+.switch-track{background:#8d9797!important;box-shadow:inset 0 2px 4px #23433833}
+.final-adjustments{gap:8px!important;padding:10px!important;background:transparent!important;border:0!important}
+.final-adjustment-row{background:#f3f8f4!important;border:0!important;box-shadow:none!important;border-radius:12px!important}
+.final-adjustment-row+.final-adjustment-row{border:0!important;margin:0!important}
+.result-summary{background:#153d31!important}
+@media(max-width:530px){
+ .quote-section{padding:13px!important}
+ .simple-grid-head{display:none}
+ .simple-row{padding:12px}
+ .simple-row-values{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .simple-row-amount strong{font-size:16px}
+ .quote-actions .btn{flex:1}
+}
+@media print{.simple-settings,.simple-project,.simple-grid-head,.simple-row,.quote-section{display:none!important}.main-content{display:block}.result-section{order:initial}.print-brand{display:flex!important}}
 </style>
 </head>
 <body>
@@ -139,6 +195,14 @@ const STORAGE='flislegging-oslo-saved-catalog-v1';
 const LANG_KEY='flislegging-oslo-catalog-language-v1';
 const CATEGORY=['tile','profile','material','labor','other'];
 const UNITS=['m2','box','pcs','m','bag','hour','job'];
+const SIMPLE_KEY='flislegging-oslo-simple-layout-v1';
+const SIMPLE_ROWS=[
+{id:'quick-floor',name:'مساحة الأرض',nameNo:'Gulvflate',type:'other',unit:'m2',price:0},
+{id:'quick-wall',name:'مساحة الجدران',nameNo:'Veggflate',type:'other',unit:'m2',price:0},
+{id:'quick-floor-corner',name:'زاوية الأرض',nameNo:'Gulvhjørne',type:'profile',unit:'m',price:0},
+{id:'quick-wall-corner',name:'زاوية الجدران',nameNo:'Vegghjørne',type:'profile',unit:'m',price:0},
+{id:'quick-labor',name:'أجرة العمل',nameNo:'Arbeidskostnad',type:'labor',unit:'job',price:0}
+];
 const DEFAULT_ITEMS=[
  {id:'sample-tile-60',name:'بلاط 60 × 60',nameNo:'Fliser 60 × 60',type:'tile',unit:'m2',price:550,tileW:60,tileH:60,piecesBox:4,demo:true},
  {id:'sample-tile-30',name:'بلاط 30 × 30',nameNo:'Fliser 30 × 30',type:'tile',unit:'m2',price:430,tileW:30,tileH:30,piecesBox:10,demo:true},
@@ -147,8 +211,8 @@ const DEFAULT_ITEMS=[
  {id:'sample-labor',name:'أجور تركيب البلاط',nameNo:'Flislegging – arbeid',type:'labor',unit:'m2',price:850,demo:true},
 ];
 const T={
-ar:{savedLocal:'محفوظ على هذا الجهاز',saveUnavailable:'الحفظ غير متاح؛ صدّر نسخة احتياطية',eyebrow:'حاسبة أسعار البلاط',heroTitle:'احفظ أسعارك مرة واحدة.<br>احسب أي مشروع بثوانٍ.',heroDesc:'بلاط 60×60، بلاط 30×30، زوايا، غراء، وتركيب. اختر الأصناف التي حفظتها وأدخل الكمية لتحصل على الإجمالي فورًا.',demoWarning:'الأسعار الحالية أمثلة توضيحية فقط، وليست أسعار السوق. عدّلها إلى أسعارك الحقيقية قبل إرسال عرض للزبون.',stepOne:'قائمة أسعارك المحفوظة',catalogTitle:'قائمة الأسعار',catalogHelp:'أضف أنواع البلاط والمواد والخدمات مع أسعارها ووحدات تسعيرها. تحفظ تلقائيًا.',addItem:'إضافة صنف وسعر',searchPlaceholder:'ابحث عن بلاط، زاوية، غراء...',all:'الكل',tile:'البلاط',profile:'الزوايا',material:'المواد',labor:'التركيب',other:'أخرى',noItems:'لا توجد أصناف تطابق البحث.',addToQuote:'أضف للحساب',edit:'تعديل',deleteItem:'حذف الصنف',demo:'سعر تجريبي',tileSize:'مقاس',boxContains:'قطعة في العلبة',stepTwo:'حدد الكميات والقياسات',quoteTitle:'حساب مشروع جديد',quoteHelp:'أضف أصنافًا من قائمتك، ثم أدخل المقاسات بالسنتيمتر أو الكميات.',addedItems:'أصناف مضافة',quoteEmptyTitle:'ابدأ باختيار صنف من الأعلى',quoteEmptyText:'مثلاً: بلاط 60×60 ثم زوايا وغراء وأجور تركيب. أضف السعر المحفوظ بنقرة واحدة.',goCatalog:'الذهاب إلى قائمة الأسعار ↑',dimensions:'بالطول والعرض',areaEntry:'إدخال المساحة',lengthCm:'الطول',widthCm:'العرض',surfaces:'عدد المساحات',areaM2:'المساحة (m²)',waste:'الهدر (%)',linearCm:'الطول',quantity:'الكمية',computedArea:'المساحة مع الهدر',neededPieces:'بلاطة',neededBoxes:'علبة',lineQuantity:'الكمية المحسوبة',unitCost:'سعر الوحدة',removeLine:'إزالة من الحساب',discount:'الخصم',addDiscount:'تفعيل الخصم على النتيجة',addMva:'إضافة MVA بنسبة 25%',showResult:'إظهار النتيجة',clearQuote:'مسح الحساب',stepThree:'الإجمالي وعرض السعر',resultTitle:'النتيجة النهائية',instantResult:'يتحدث المبلغ تلقائيًا عند تعديل الأسعار أو الكميات.',grandTotal:'المجموع النهائي',subtotal:'مجموع الأصناف',costBreakdown:'تفصيل التكاليف',calculatedNow:'يُحدّث تلقائيًا',noResult:'أضف صنفًا من قائمة الأسعار لبدء الحساب.',customerDetails:'معلومات الزبون وعرض السعر',companyName:'اسم الشركة',clientName:'اسم الزبون',clientPlaceholder:'اسم الزبون',projectAddress:'عنوان المشروع',addressPlaceholder:'المدينة والشارع',quoteDate:'تاريخ العرض',notes:'ملاحظات',notesPlaceholder:'مثلاً: لا يشمل النقل',pdf:'حفظ أو طباعة PDF',copy:'نسخ عرض السعر',share:'مشاركة عبر واتساب',yourDataTitle:'أسعارك محفوظة في المتصفح',yourDataText:'قد تُفقد الأسعار عند حذف بيانات المتصفح أو تغيير الجهاز. احفظ نسخة احتياطية. لا نرسل بياناتك إلى خادم.',export:'تصدير الأسعار',import:'استيراد الأسعار',footerLine:'حاسبة أسعار البلاط والمواد · NOK · عربي / Norsk',savePrice:'تخزين السعر',addNewItem:'إضافة صنف جديد',editItem:'تعديل الصنف',itemName:'اسم الصنف',itemNamePlaceholder:'مثلاً: بلاط 60×60',category:'التصنيف',unit:'وحدة التسعير',unitPrice:'سعر الوحدة (NOK)',tileFieldsHelp:'بيانات البلاطة لحساب عدد القطع والعلب تلقائيًا',tileWidth:'عرض البلاطة (cm)',tileHeight:'طول البلاطة (cm)',piecesBox:'القطع في العلبة',cancel:'إلغاء',saveItem:'حفظ الصنف والسعر',unit_m2:'م²',unit_box:'علبة',unit_pcs:'قطعة',unit_m:'متر طولي',unit_bag:'كيس',unit_hour:'ساعة',unit_job:'عملية',per:'لكل',confirmDelete:'حذف هذا الصنف من قائمة الأسعار والحساب الحالي؟',confirmClear:'هل تريد مسح أصناف هذا الحساب؟ ستبقى قائمة أسعارك المحفوظة.',confirmImport:'هل تريد استبدال الأصناف المحفوظة بنسخة الأسعار المستوردة؟',invalidItem:'اكتب اسم الصنف وسعرًا صحيحًا.',invalidTiles:'أدخل أبعاد بلاط وعدد قطع في العلبة أكبر من الصفر.',added:'تمت الإضافة إلى الحساب',saved:'تم حفظ الصنف والسعر',deleted:'تم حذف الصنف',quoteCleared:'تم مسح الحساب، وأسعارك محفوظة',noLines:'أضف صنفًا أولًا حتى تحسب السعر',copied:'تم نسخ العرض',copyFailed:'تعذر النسخ؛ جرّب طباعة PDF',backupSaved:'تم تصدير نسخة الأسعار',imported:'تم استيراد الأسعار',badBackup:'الملف غير صالح أو لا يحتوي قائمة أسعار صحيحة.',storageError:'المتصفح لا يسمح بالحفظ المحلي؛ استخدم تصدير الأسعار.',shareUnavailable:'تعذر فتح واتساب. يمكنك نسخ العرض.',calculateFirst:'أضف أصنافًا لعرض نتيجة',details:'تفاصيل',amount:'المبلغ',pricePer:'سعر لكل',client:'الزبون',project:'المشروع',date:'التاريخ',noClient:'غير محدد',quote:'عرض سعر',tax:'ضريبة MVA',pricesNOK:'جميع الأسعار بالكرونة النرويجية',missingInput:'أدخل القياسات أو الكمية أولًا',zero:'0',sampleAlert:'مثال، عدّل السعر', unitShort:'الوحدة',noBreakdown:'لا توجد أصناف بعد.',close:'إغلاق'},
-no:{savedLocal:'Lagret på denne enheten',saveUnavailable:'Lagring er utilgjengelig – eksporter en sikkerhetskopi',eyebrow:'Fliskalkulator og prisliste',heroTitle:'Lagre prisene én gang.<br>Beregn jobben på sekunder.',heroDesc:'Fliser 60×60, fliser 30×30, hjørnelister, lim og arbeid. Velg lagrede produkter, angi mengde og få totalsummen med én gang.',demoWarning:'Prisene som vises er kun eksempler, ikke markedspriser. Endre dem til dine faktiske priser før du sender et tilbud.',stepOne:'Din lagrede prisliste',catalogTitle:'Prisliste',catalogHelp:'Legg til fliser, materialer og tjenester med egne priser og enheter. Lagres automatisk.',addItem:'Legg til vare og pris',searchPlaceholder:'Søk etter fliser, list, lim ...',all:'Alle',tile:'Fliser',profile:'Lister',material:'Materialer',labor:'Arbeid',other:'Annet',noItems:'Ingen varer funnet.',addToQuote:'Legg til i kalkylen',edit:'Rediger',deleteItem:'Slett vare',demo:'Eksempelpris',tileSize:'Størrelse',boxContains:'stk. per eske',stepTwo:'Mål og antall',quoteTitle:'Ny prosjektkalkyle',quoteHelp:'Legg til varer fra prislisten og oppgi mål i centimeter eller antall.',addedItems:'valgte varer',quoteEmptyTitle:'Velg en vare fra listen ovenfor',quoteEmptyText:'For eksempel fliser 60×60, deretter hjørnelister, lim og arbeid. Prisen beregnes automatisk.',goCatalog:'Gå til prislisten ↑',dimensions:'Lengde × bredde',areaEntry:'Angi areal',lengthCm:'Lengde',widthCm:'Bredde',surfaces:'Antall flater',areaM2:'Areal (m²)',waste:'Svinn (%)',linearCm:'Lengde',quantity:'Antall',computedArea:'Areal inkl. svinn',neededPieces:'fliser',neededBoxes:'esker',lineQuantity:'Beregnet mengde',unitCost:'Enhetspris',removeLine:'Fjern fra kalkylen',discount:'Rabatt',addDiscount:'Aktiver rabatt på totalsummen',addMva:'Legg til 25 % MVA',showResult:'Vis resultat',clearQuote:'Tøm kalkylen',stepThree:'Sum og tilbud',resultTitle:'Endelig resultat',instantResult:'Summen oppdateres automatisk når priser eller mengder endres.',grandTotal:'Totalsum',subtotal:'Varesum',costBreakdown:'Kostnadsoversikt',calculatedNow:'Oppdateres automatisk',noResult:'Legg til en vare fra prislisten for å begynne.',customerDetails:'Kundeinformasjon og tilbud',companyName:'Firmanavn',clientName:'Kundenavn',clientPlaceholder:'Kundenavn',projectAddress:'Prosjektadresse',addressPlaceholder:'By og gateadresse',quoteDate:'Tilbudsdato',notes:'Merknader',notesPlaceholder:'F.eks. transport ikke inkludert',pdf:'Lagre / skriv ut PDF',copy:'Kopier tilbud',share:'Del via WhatsApp',yourDataTitle:'Prisene er lagret i nettleseren',yourDataText:'Data kan gå tapt hvis du sletter nettleserdata eller bytter telefon. Eksporter en sikkerhetskopi. Ingenting sendes til en server.',export:'Eksporter priser',import:'Importer priser',footerLine:'Kalkulator for fliser og materialer · NOK · Norsk / عربي',savePrice:'Lagre pris',addNewItem:'Legg til ny vare',editItem:'Rediger vare',itemName:'Varenavn',itemNamePlaceholder:'F.eks. fliser 60×60',category:'Kategori',unit:'Prisenhet',unitPrice:'Pris per enhet (NOK)',tileFieldsHelp:'Flismål brukes til å beregne antall fliser og esker automatisk',tileWidth:'Flisbredde (cm)',tileHeight:'Flislengde (cm)',piecesBox:'Fliser per eske',cancel:'Avbryt',saveItem:'Lagre vare og pris',unit_m2:'m²',unit_box:'eske',unit_pcs:'stk.',unit_m:'løpemeter',unit_bag:'sekk',unit_hour:'time',unit_job:'jobb',per:'per',confirmDelete:'Vil du slette denne varen fra prislisten og den gjeldende kalkylen?',confirmClear:'Vil du fjerne alle varer i denne kalkylen? Prislisten beholdes.',confirmImport:'Vil du erstatte lagrede varer med innholdet i sikkerhetskopien?',invalidItem:'Skriv inn varenavn og en gyldig pris.',invalidTiles:'Fyll inn flismål og antall per eske større enn null.',added:'Varen er lagt til',saved:'Pris lagret',deleted:'Vare slettet',quoteCleared:'Kalkylen er tømt. Prislisten er bevart.',noLines:'Legg til en vare for å se resultatet',copied:'Tilbud kopiert',copyFailed:'Kunne ikke kopiere. Prøv PDF-utskrift.',backupSaved:'Sikkerhetskopien er eksportert',imported:'Prislisten er importert',badBackup:'Ugyldig fil eller ingen gyldig prisliste.',storageError:'Nettleseren tillater ikke lokal lagring; eksporter en sikkerhetskopi.',shareUnavailable:'WhatsApp kunne ikke åpnes. Du kan kopiere tilbudet.',calculateFirst:'Legg til en vare for å beregne',details:'Detaljer',amount:'Beløp',pricePer:'Pris per',client:'Kunde',project:'Prosjekt',date:'Dato',noClient:'Ikke angitt',quote:'Pristilbud',tax:'MVA',pricesNOK:'Alle priser oppgitt i norske kroner',missingInput:'Fyll inn mål eller mengde først',zero:'0',sampleAlert:'Eksempel – endre pris',unitShort:'Enhet',noBreakdown:'Ingen varer ennå.',close:'Lukk'}
+ar:{manageSimple:'الإعدادات · إضافة منتج',projectSimple:'اسم العميل / المشروع',simpleHead:'حاسبة البلاط',simpleHint:'أدخل المساحة أو الكمية والسعر لكل بند',simpleProduct:'البند',simpleQty:'المساحة / الكمية',simplePrice:'سعر الوحدة',simpleSum:'المجموع',simpleArea:'المساحة',simpleMeter:'الطول',savedLocal:'محفوظ على هذا الجهاز',saveUnavailable:'الحفظ غير متاح؛ صدّر نسخة احتياطية',eyebrow:'حاسبة أسعار البلاط',heroTitle:'احفظ أسعارك مرة واحدة.<br>احسب أي مشروع بثوانٍ.',heroDesc:'بلاط 60×60، بلاط 30×30، زوايا، غراء، وتركيب. اختر الأصناف التي حفظتها وأدخل الكمية لتحصل على الإجمالي فورًا.',demoWarning:'الأسعار الحالية أمثلة توضيحية فقط، وليست أسعار السوق. عدّلها إلى أسعارك الحقيقية قبل إرسال عرض للزبون.',stepOne:'قائمة أسعارك المحفوظة',catalogTitle:'قائمة الأسعار',catalogHelp:'أضف أنواع البلاط والمواد والخدمات مع أسعارها ووحدات تسعيرها. تحفظ تلقائيًا.',addItem:'إضافة صنف وسعر',searchPlaceholder:'ابحث عن بلاط، زاوية، غراء...',all:'الكل',tile:'البلاط',profile:'الزوايا',material:'المواد',labor:'التركيب',other:'أخرى',noItems:'لا توجد أصناف تطابق البحث.',addToQuote:'أضف للحساب',edit:'تعديل',deleteItem:'حذف الصنف',demo:'سعر تجريبي',tileSize:'مقاس',boxContains:'قطعة في العلبة',stepTwo:'حدد الكميات والقياسات',quoteTitle:'حساب مشروع جديد',quoteHelp:'أضف أصنافًا من قائمتك، ثم أدخل المقاسات بالسنتيمتر أو الكميات.',addedItems:'أصناف مضافة',quoteEmptyTitle:'ابدأ باختيار صنف من الأعلى',quoteEmptyText:'مثلاً: بلاط 60×60 ثم زوايا وغراء وأجور تركيب. أضف السعر المحفوظ بنقرة واحدة.',goCatalog:'الذهاب إلى قائمة الأسعار ↑',dimensions:'بالطول والعرض',areaEntry:'إدخال المساحة',lengthCm:'الطول',widthCm:'العرض',surfaces:'عدد المساحات',areaM2:'المساحة (m²)',waste:'الهدر (%)',linearCm:'الطول',quantity:'الكمية',computedArea:'المساحة مع الهدر',neededPieces:'بلاطة',neededBoxes:'علبة',lineQuantity:'الكمية المحسوبة',unitCost:'سعر الوحدة',removeLine:'إزالة من الحساب',discount:'الخصم',addDiscount:'تفعيل الخصم على النتيجة',addMva:'إضافة MVA بنسبة 25%',showResult:'إظهار النتيجة',clearQuote:'مسح الحساب',stepThree:'الإجمالي وعرض السعر',resultTitle:'النتيجة النهائية',instantResult:'يتحدث المبلغ تلقائيًا عند تعديل الأسعار أو الكميات.',grandTotal:'المجموع النهائي',subtotal:'مجموع الأصناف',costBreakdown:'تفصيل التكاليف',calculatedNow:'يُحدّث تلقائيًا',noResult:'أضف صنفًا من قائمة الأسعار لبدء الحساب.',customerDetails:'معلومات الزبون وعرض السعر',companyName:'اسم الشركة',clientName:'اسم الزبون',clientPlaceholder:'اسم الزبون',projectAddress:'عنوان المشروع',addressPlaceholder:'المدينة والشارع',quoteDate:'تاريخ العرض',notes:'ملاحظات',notesPlaceholder:'مثلاً: لا يشمل النقل',pdf:'حفظ أو طباعة PDF',copy:'نسخ عرض السعر',share:'مشاركة عبر واتساب',yourDataTitle:'أسعارك محفوظة في المتصفح',yourDataText:'قد تُفقد الأسعار عند حذف بيانات المتصفح أو تغيير الجهاز. احفظ نسخة احتياطية. لا نرسل بياناتك إلى خادم.',export:'تصدير الأسعار',import:'استيراد الأسعار',footerLine:'حاسبة أسعار البلاط والمواد · NOK · عربي / Norsk',savePrice:'تخزين السعر',addNewItem:'إضافة صنف جديد',editItem:'تعديل الصنف',itemName:'اسم الصنف',itemNamePlaceholder:'مثلاً: بلاط 60×60',category:'التصنيف',unit:'وحدة التسعير',unitPrice:'سعر الوحدة (NOK)',tileFieldsHelp:'بيانات البلاطة لحساب عدد القطع والعلب تلقائيًا',tileWidth:'عرض البلاطة (cm)',tileHeight:'طول البلاطة (cm)',piecesBox:'القطع في العلبة',cancel:'إلغاء',saveItem:'حفظ الصنف والسعر',unit_m2:'م²',unit_box:'علبة',unit_pcs:'قطعة',unit_m:'متر طولي',unit_bag:'كيس',unit_hour:'ساعة',unit_job:'عملية',per:'لكل',confirmDelete:'حذف هذا الصنف من قائمة الأسعار والحساب الحالي؟',confirmClear:'هل تريد مسح أصناف هذا الحساب؟ ستبقى قائمة أسعارك المحفوظة.',confirmImport:'هل تريد استبدال الأصناف المحفوظة بنسخة الأسعار المستوردة؟',invalidItem:'اكتب اسم الصنف وسعرًا صحيحًا.',invalidTiles:'أدخل أبعاد بلاط وعدد قطع في العلبة أكبر من الصفر.',added:'تمت الإضافة إلى الحساب',saved:'تم حفظ الصنف والسعر',deleted:'تم حذف الصنف',quoteCleared:'تم مسح الحساب، وأسعارك محفوظة',noLines:'أضف صنفًا أولًا حتى تحسب السعر',copied:'تم نسخ العرض',copyFailed:'تعذر النسخ؛ جرّب طباعة PDF',backupSaved:'تم تصدير نسخة الأسعار',imported:'تم استيراد الأسعار',badBackup:'الملف غير صالح أو لا يحتوي قائمة أسعار صحيحة.',storageError:'المتصفح لا يسمح بالحفظ المحلي؛ استخدم تصدير الأسعار.',shareUnavailable:'تعذر فتح واتساب. يمكنك نسخ العرض.',calculateFirst:'أضف أصنافًا لعرض نتيجة',details:'تفاصيل',amount:'المبلغ',pricePer:'سعر لكل',client:'الزبون',project:'المشروع',date:'التاريخ',noClient:'غير محدد',quote:'عرض سعر',tax:'ضريبة MVA',pricesNOK:'جميع الأسعار بالكرونة النرويجية',missingInput:'أدخل القياسات أو الكمية أولًا',zero:'0',sampleAlert:'مثال، عدّل السعر', unitShort:'الوحدة',noBreakdown:'لا توجد أصناف بعد.',close:'إغلاق'},
+no:{manageSimple:'Innstillinger · Legg til produkt',projectSimple:'Kunde / prosjekt',simpleHead:'Fliskalkulator',simpleHint:'Skriv inn areal eller antall og enhetspris',simpleProduct:'Post',simpleQty:'Areal / antall',simplePrice:'Enhetspris',simpleSum:'Sum',simpleArea:'Areal',simpleMeter:'Lengde',savedLocal:'Lagret på denne enheten',saveUnavailable:'Lagring er utilgjengelig – eksporter en sikkerhetskopi',eyebrow:'Fliskalkulator og prisliste',heroTitle:'Lagre prisene én gang.<br>Beregn jobben på sekunder.',heroDesc:'Fliser 60×60, fliser 30×30, hjørnelister, lim og arbeid. Velg lagrede produkter, angi mengde og få totalsummen med én gang.',demoWarning:'Prisene som vises er kun eksempler, ikke markedspriser. Endre dem til dine faktiske priser før du sender et tilbud.',stepOne:'Din lagrede prisliste',catalogTitle:'Prisliste',catalogHelp:'Legg til fliser, materialer og tjenester med egne priser og enheter. Lagres automatisk.',addItem:'Legg til vare og pris',searchPlaceholder:'Søk etter fliser, list, lim ...',all:'Alle',tile:'Fliser',profile:'Lister',material:'Materialer',labor:'Arbeid',other:'Annet',noItems:'Ingen varer funnet.',addToQuote:'Legg til i kalkylen',edit:'Rediger',deleteItem:'Slett vare',demo:'Eksempelpris',tileSize:'Størrelse',boxContains:'stk. per eske',stepTwo:'Mål og antall',quoteTitle:'Ny prosjektkalkyle',quoteHelp:'Legg til varer fra prislisten og oppgi mål i centimeter eller antall.',addedItems:'valgte varer',quoteEmptyTitle:'Velg en vare fra listen ovenfor',quoteEmptyText:'For eksempel fliser 60×60, deretter hjørnelister, lim og arbeid. Prisen beregnes automatisk.',goCatalog:'Gå til prislisten ↑',dimensions:'Lengde × bredde',areaEntry:'Angi areal',lengthCm:'Lengde',widthCm:'Bredde',surfaces:'Antall flater',areaM2:'Areal (m²)',waste:'Svinn (%)',linearCm:'Lengde',quantity:'Antall',computedArea:'Areal inkl. svinn',neededPieces:'fliser',neededBoxes:'esker',lineQuantity:'Beregnet mengde',unitCost:'Enhetspris',removeLine:'Fjern fra kalkylen',discount:'Rabatt',addDiscount:'Aktiver rabatt på totalsummen',addMva:'Legg til 25 % MVA',showResult:'Vis resultat',clearQuote:'Tøm kalkylen',stepThree:'Sum og tilbud',resultTitle:'Endelig resultat',instantResult:'Summen oppdateres automatisk når priser eller mengder endres.',grandTotal:'Totalsum',subtotal:'Varesum',costBreakdown:'Kostnadsoversikt',calculatedNow:'Oppdateres automatisk',noResult:'Legg til en vare fra prislisten for å begynne.',customerDetails:'Kundeinformasjon og tilbud',companyName:'Firmanavn',clientName:'Kundenavn',clientPlaceholder:'Kundenavn',projectAddress:'Prosjektadresse',addressPlaceholder:'By og gateadresse',quoteDate:'Tilbudsdato',notes:'Merknader',notesPlaceholder:'F.eks. transport ikke inkludert',pdf:'Lagre / skriv ut PDF',copy:'Kopier tilbud',share:'Del via WhatsApp',yourDataTitle:'Prisene er lagret i nettleseren',yourDataText:'Data kan gå tapt hvis du sletter nettleserdata eller bytter telefon. Eksporter en sikkerhetskopi. Ingenting sendes til en server.',export:'Eksporter priser',import:'Importer priser',footerLine:'Kalkulator for fliser og materialer · NOK · Norsk / عربي',savePrice:'Lagre pris',addNewItem:'Legg til ny vare',editItem:'Rediger vare',itemName:'Varenavn',itemNamePlaceholder:'F.eks. fliser 60×60',category:'Kategori',unit:'Prisenhet',unitPrice:'Pris per enhet (NOK)',tileFieldsHelp:'Flismål brukes til å beregne antall fliser og esker automatisk',tileWidth:'Flisbredde (cm)',tileHeight:'Flislengde (cm)',piecesBox:'Fliser per eske',cancel:'Avbryt',saveItem:'Lagre vare og pris',unit_m2:'m²',unit_box:'eske',unit_pcs:'stk.',unit_m:'løpemeter',unit_bag:'sekk',unit_hour:'time',unit_job:'jobb',per:'per',confirmDelete:'Vil du slette denne varen fra prislisten og den gjeldende kalkylen?',confirmClear:'Vil du fjerne alle varer i denne kalkylen? Prislisten beholdes.',confirmImport:'Vil du erstatte lagrede varer med innholdet i sikkerhetskopien?',invalidItem:'Skriv inn varenavn og en gyldig pris.',invalidTiles:'Fyll inn flismål og antall per eske større enn null.',added:'Varen er lagt til',saved:'Pris lagret',deleted:'Vare slettet',quoteCleared:'Kalkylen er tømt. Prislisten er bevart.',noLines:'Legg til en vare for å se resultatet',copied:'Tilbud kopiert',copyFailed:'Kunne ikke kopiere. Prøv PDF-utskrift.',backupSaved:'Sikkerhetskopien er eksportert',imported:'Prislisten er importert',badBackup:'Ugyldig fil eller ingen gyldig prisliste.',storageError:'Nettleseren tillater ikke lokal lagring; eksporter en sikkerhetskopi.',shareUnavailable:'WhatsApp kunne ikke åpnes. Du kan kopiere tilbudet.',calculateFirst:'Legg til en vare for å beregne',details:'Detaljer',amount:'Beløp',pricePer:'Pris per',client:'Kunde',project:'Prosjekt',date:'Dato',noClient:'Ikke angitt',quote:'Pristilbud',tax:'MVA',pricesNOK:'Alle priser oppgitt i norske kroner',missingInput:'Fyll inn mål eller mengde først',zero:'0',sampleAlert:'Eksempel – endre pris',unitShort:'Enhet',noBreakdown:'Ingen varer ennå.',close:'Lukk'}
 };
 let lang='ar';let state={catalog:[],quote:[],discount:0,discountMode:'nok',discountEnabled:false,mva:false,customer:{company:'FLISLEGGING OSLO',client:'',address:'',date:new Date().toISOString().slice(0,10),notes:''}};
 let filter='all', search='', editId=null, lastFocus=null, toastTimer=0;
@@ -174,7 +238,7 @@ function translate(){document.documentElement.lang=lang==='ar'?'ar':'no';documen
 function renderFilter(){const options=['all',...CATEGORY];$('#filterChips').innerHTML=options.map(x=>`<button type="button" class="chip ${filter===x?'active':''}" data-filter="${x}" aria-pressed="${filter===x}">${escapeHTML(tr(x))}</button>`).join('');}
 function symbol(i){return {tile:'▦',profile:'◩',material:'◈',labor:'⚒',other:'◆'}[i.type]||'▦';}
 function renderCatalog(){const list=state.catalog.filter(i=>(filter==='all'||i.type===filter)&&(!search||[i.name,i.nameNo,i.type].some(s=>String(s||'').toLocaleLowerCase().includes(search))));$('#catalogEmpty').hidden=list.length>0;$('#catalogGrid').innerHTML=list.map(i=>{const meta=i.type==='tile'?`${tr('tileSize')}: ${num(i.tileW,1)}×${num(i.tileH,1)} cm · ${i.piecesBox} ${tr('boxContains')}`:tr(i.type);return `<article class="item-card"><div class="item-card-top"><div class="item-symbol ${i.type}" aria-hidden="true">${symbol(i)}</div><div><h3 class="item-name">${escapeHTML(nameOf(i))}</h3><div class="item-category">${escapeHTML(tr(i.type))}${i.demo?' · <span class="demo-tag">'+escapeHTML(tr('demo'))+'</span>':''}</div></div></div><div class="item-price"><b>${money(i.price)}</b><small>NOK / ${escapeHTML(unitText(i.unit))}</small></div><div class="item-meta">${escapeHTML(meta)}</div><div class="item-card-actions"><button class="btn btn-gold" type="button" data-action="add-line" data-id="${escapeHTML(i.id)}">＋ ${escapeHTML(tr('addToQuote'))}</button><button type="button" class="icon-button" data-action="edit-item" data-id="${escapeHTML(i.id)}" title="${escapeHTML(tr('edit'))}" aria-label="${escapeHTML(tr('edit'))}">✎</button><button type="button" class="icon-button icon-danger" data-action="delete-item" data-id="${escapeHTML(i.id)}" title="${escapeHTML(tr('deleteItem'))}" aria-label="${escapeHTML(tr('deleteItem'))}">×</button></div></article>`}).join('');}
-function newLine(i){return {id:id(),itemId:i.id,mode:'dimensions',lengthCm:0,widthCm:0,measureUnit:'cm',surfaces:1,areaM2:0,waste:10,quantity:1,linearCm:0,linearUnit:'cm'};}
+function newLine(i){return {id:id(),itemId:i.id,mode:'area',lengthCm:0,widthCm:0,measureUnit:'cm',surfaces:1,areaM2:0,waste:0,quantity:i.unit==='job'?1:0,linearCm:0,linearUnit:'cm'};}
 function calcLine(line,item){if(!item)return {quantity:0,total:0,info:''};let qty=0,info='';if(item.type==='tile'){
   const area=line.mode==='area'?positive(line.areaM2):positive(line.lengthCm)*positive(line.widthCm)*Math.max(1,positive(line.surfaces))/10000;
   const neededArea=area*(1+Math.min(100,positive(line.waste))/100);
@@ -203,14 +267,35 @@ function unitToggle(line,unitKey){
   const title=lang==='ar'?(unitKey==='linearUnit'?'وحدة الطول':'وحدة الطول والعرض'):(unitKey==='linearUnit'?'Lengdeenhet':'Enhet for lengde og bredde');
   return `<div class="measure-switch-group"><span>${title}</span><div class="measure-switch" role="group" aria-label="${escapeHTML(title)}"><button type="button" data-line-unit="${escapeHTML(line.id)}" data-unit-key="${escapeHTML(unitKey)}" data-unit-value="cm" aria-pressed="${unit==='cm'}" class="${unit==='cm'?'active':''}">cm</button><button type="button" data-line-unit="${escapeHTML(line.id)}" data-unit-key="${escapeHTML(unitKey)}" data-unit-value="m" aria-pressed="${unit==='m'}" class="${unit==='m'?'active':''}">m</button></div></div>`;
 }
-function renderQuote(){const q=$('#quoteLines');q.innerHTML=state.quote.map((line,n)=>{const item=state.catalog.find(i=>i.id===line.itemId);if(!item)return '';const r=calcLine(line,item);let fields='';if(item.type==='tile'||item.unit==='m2'){
-  fields+=`<label class="form-field mode-field"><span>${tr('details')}</span><select data-line="${escapeHTML(line.id)}" data-field="mode"><option value="dimensions" ${line.mode==='dimensions'?'selected':''}>${tr('dimensions')}</option><option value="area" ${line.mode==='area'?'selected':''}>${tr('areaEntry')}</option></select></label>`;
-  if(line.mode==='dimensions'){fields+=unitToggle(line,'measureUnit')+dimensionField(line,'lengthCm',tr('lengthCm'))+dimensionField(line,'widthCm',tr('widthCm'))+field({line,name:'surfaces',label:tr('surfaces'),value:line.surfaces,min:1,step:1});}
-  else{fields+=field({line,name:'areaM2',label:tr('areaM2'),value:line.areaM2,suffix:'m²'});}
-  if(item.type==='tile')fields+=field({line,name:'waste',label:tr('waste'),value:line.waste,min:0,max:100,suffix:'%'});
-}else if(item.unit==='m')fields+=unitToggle(line,'linearUnit')+dimensionField(line,'linearCm',tr('linearCm'));
-else fields+=field({line,name:'quantity',label:tr('quantity')+' ('+unitText(item.unit)+')',value:line.quantity,step:['pcs','bag','box','job'].includes(item.unit)?1:'any'});
-return `<article class="quote-card" data-line-card="${escapeHTML(line.id)}"><div class="quote-card-top"><div class="quote-number">${n+1}</div><div><div class="quote-item-name">${escapeHTML(nameOf(item))}</div><div class="quote-unit-price">${money(item.price)} NOK / ${escapeHTML(unitText(item.unit))}</div></div><button type="button" class="delete-line" data-action="remove-line" data-id="${escapeHTML(line.id)}" aria-label="${escapeHTML(tr('removeLine'))}" title="${escapeHTML(tr('removeLine'))}">×</button></div><div class="quote-card-fields">${fields}</div><div class="line-summary"><small data-line-info="${escapeHTML(line.id)}">${escapeHTML(r.info)}</small><strong data-line-total="${escapeHTML(line.id)}">${money(r.total)} NOK</strong></div></article>`}).join('');$('#quoteEmpty').hidden=state.quote.length>0;$('#itemCount').textContent=state.quote.length;renderDiscountControls();$('#mvaToggle').checked=state.mva;}
+
+function lineInputAmount(line,item){
+ if(item.type==='tile'||item.unit==='m2')return line.mode==='area'?positive(line.areaM2):positive(line.lengthCm)*positive(line.widthCm)*Math.max(1,positive(line.surfaces))/10000;
+ if(item.unit==='m')return positive(line.linearCm)/100;
+ return positive(line.quantity);
+}
+function renderQuote(){
+ const list=$('#quoteLines');
+ list.innerHTML=state.quote.map((line,i)=>{
+  const item=state.catalog.find(x=>x.id===line.itemId);
+  if(!item)return '';
+  const summary=calcLine(line,item);
+  const unit=(item.type==='tile'||item.unit==='m2')?'m²':item.unit==='m'?'m':unitText(item.unit);
+  const qtyLabel=(item.type==='tile'||item.unit==='m2')?tr('simpleArea'):item.unit==='m'?tr('simpleMeter'):tr('quantity');
+  const qty=lineInputAmount(line,item);
+  return `<article class="simple-row" data-line-card="${escapeHTML(line.id)}">
+    <div class="simple-row-heading"><span class="simple-index">${i+1}</span><strong>${escapeHTML(nameOf(item))}</strong><button type="button" class="simple-delete" data-action="remove-line" data-id="${escapeHTML(line.id)}" aria-label="${escapeHTML(tr('removeLine'))}">×</button></div>
+    <div class="simple-row-values">
+      <label><span>${escapeHTML(qtyLabel)} (${escapeHTML(unit)})</span><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-simple-qty="${escapeHTML(line.id)}" value="${qty?Number(qty.toFixed(6)):''}"></label>
+      <label><span>${escapeHTML(tr('simplePrice'))} (NOK)</span><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-simple-price="${escapeHTML(item.id)}" value="${positive(item.price)||''}"></label>
+    </div>
+    <div class="simple-row-amount"><span data-line-info="${escapeHTML(line.id)}">${escapeHTML(tr('simpleSum'))}</span><strong data-line-total="${escapeHTML(line.id)}">${money(summary.total)} NOK</strong></div>
+  </article>`;
+ }).join('');
+ $('#quoteEmpty').hidden=state.quote.length>0;
+ $('#itemCount').textContent=state.quote.length;
+ renderDiscountControls();
+ $('#mvaToggle').checked=state.mva;
+}
 function renderDiscountControls(){
  const mode=state.discountMode==='percent'?'percent':'nok';
  const input=$('#discount');input.value=state.discount;
@@ -246,15 +331,15 @@ function buildText(){const r=totalResult(),c=state.customer;let x=`FLISLEGGING O
 async function copyText(s){if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(s);return;}const t=document.createElement('textarea');t.value=s;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();if(!ok)throw Error('copy failed');}
 function exportPrices(){const blob=new Blob([JSON.stringify({app:'FLISLEGGING OSLO',version:1,exportedAt:new Date().toISOString(),catalog:state.catalog,quote:state.quote,discount:state.discount,discountMode:state.discountMode,discountEnabled:state.discountEnabled,mva:state.mva,customer:state.customer},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`FLISLEGGING-OSLO-priser-${new Date().toISOString().slice(0,10)}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast(tr('backupSaved'));}
 async function importPrices(file){if(!file)return;try{if(file.size>3*1024*1024)throw Error('size');const input=JSON.parse(await file.text());if(!input||!Array.isArray(input.catalog)||input.catalog.length>1000)throw Error('invalid');const catalog=cleanCatalog(input.catalog);if(input.catalog.length&&!catalog.length)throw Error('no items');if(!window.confirm(tr('confirmImport')))return;state.catalog=catalog;state.quote=cleanQuote(Array.isArray(input.quote)?input.quote:[],catalog);state.discount=positive(input.discount);state.discountMode=input.discountMode==='percent'?'percent':'nok';if(state.discountMode==='percent')state.discount=Math.min(100,state.discount);state.discountEnabled=typeof input.discountEnabled==='boolean'?input.discountEnabled:state.discount>0;state.mva=!!input.mva;state.customer={...state.customer,...Object.fromEntries(Object.entries(input.customer||{}).filter(([k,v])=>Object.prototype.hasOwnProperty.call(state.customer,k)&&typeof v==='string').map(([k,v])=>[k,v.slice(0,350)]))};save();renderCatalog();renderQuote();renderResult();notice();fillCustomer();toast(tr('imported'));}catch(e){toast(tr('badBackup'));}finally{$('#importFile').value='';}}
-function fillCustomer(){Object.entries(state.customer).forEach(([key,value])=>{const el=$(`[data-customer="${key}"]`);if(el)el.value=value});}
+function fillCustomer(){Object.entries(state.customer).forEach(([key,value])=>{$(`[data-customer="${key}"]`).forEach(el=>el.value=value);});}
 function handleAction(btn){const action=btn.dataset.action, value=btn.dataset.id;switch(action){
-case 'new-item':modalOpen();break;
+case 'new-item':$('#simpleSettings').open=true;modalOpen();break;
 case 'edit-item':modalOpen(state.catalog.find(i=>i.id===value));break;
 case 'delete-item':if(window.confirm(tr('confirmDelete'))){state.catalog=state.catalog.filter(i=>i.id!==value);state.quote=state.quote.filter(x=>x.itemId!==value);save();renderCatalog();renderQuote();renderResult();notice();toast(tr('deleted'));}break;
 case 'add-line':addLine(value);break;
 case 'remove-line':state.quote=state.quote.filter(x=>x.id!==value);save();renderQuote();renderResult();break;
 case 'close-modal':modalClose();break;
-case 'go-catalog':$('#catalog').scrollIntoView({behavior:'smooth'});break;
+case 'go-catalog':$('#simpleSettings').open=true;$('#catalog').scrollIntoView({behavior:'smooth'});break;
 case 'show-result':if(!state.quote.length){toast(tr('noLines'));return;}$('#result').classList.remove('pulse-result');void $('#result').offsetWidth;$('#result').classList.add('pulse-result');$('#result').scrollIntoView({behavior:'smooth',block:'start'});break;
 case 'discount-mode':switchDiscountMode(btn.dataset.mode);break;
 case 'clear-quote':if(state.quote.length&&window.confirm(tr('confirmClear'))){state.quote=[];state.discount=0;state.discountEnabled=false;state.mva=false;save();renderQuote();renderResult();toast(tr('quoteCleared'));}break;
@@ -269,11 +354,55 @@ $('#catalogSearch').addEventListener('input',e=>{search=e.target.value.toLocaleL
 $('#itemForm').addEventListener('submit',saveItem);
 $('#editType').addEventListener('change',()=>{const t=$('#editType').value;renderEditOptions(t,t==='tile'?'m2':t==='profile'?'m':t==='labor'?'m2':t==='material'?'bag':'pcs');});
 $('#itemModal').addEventListener('keydown',e=>{if(e.key==='Escape')modalClose();});
-document.addEventListener('input',e=>{const el=e.target;if(el.dataset.line&&el.dataset.field){const ln=state.quote.find(x=>x.id===el.dataset.line);if(!ln)return;const v=el.dataset.field;ln[v]=['lengthCm','widthCm','linearCm'].includes(v)?Math.max(0,number(el.value)*(ln[v==='linearCm'?'linearUnit':'measureUnit']==='m'?100:1)):number(el.value);if(v==='waste')ln[v]=Math.min(100,positive(ln[v]));save();refreshLineSummary();}else if(el.id==='discount'){state.discount=state.discountMode==='percent'?Math.min(100,positive(el.value)):positive(el.value);save();renderResult();}else if(el.dataset.customer){state.customer[el.dataset.customer]=el.value;save();renderPrintInfo();}});
+document.addEventListener('input',e=>{const el=e.target;
+ if(el.dataset.simpleQty){
+  const line=state.quote.find(x=>x.id===el.dataset.simpleQty);if(!line)return;
+  const item=state.catalog.find(x=>x.id===line.itemId);if(!item)return;
+  const amount=positive(el.value);
+  if(item.type==='tile'||item.unit==='m2'){line.mode='area';line.areaM2=amount;line.waste=0;}
+  else if(item.unit==='m')line.linearCm=amount*100;
+  else line.quantity=amount;
+  save();refreshLineSummary();return;
+ }
+ if(el.dataset.simplePrice){
+  const item=state.catalog.find(x=>x.id===el.dataset.simplePrice);if(!item)return;
+  item.price=Math.min(1e9,positive(el.value));item.demo=false;save();refreshLineSummary();renderCatalog();notice();return;
+ }
+ if(el.dataset.line&&el.dataset.field){const ln=state.quote.find(x=>x.id===el.dataset.line);if(!ln)return;const v=el.dataset.field;ln[v]=['lengthCm','widthCm','linearCm'].includes(v)?Math.max(0,number(el.value)*(ln[v==='linearCm'?'linearUnit':'measureUnit']==='m'?100:1)):number(el.value);if(v==='waste')ln[v]=Math.min(100,positive(ln[v]));save();refreshLineSummary();}else if(el.id==='discount'){state.discount=state.discountMode==='percent'?Math.min(100,positive(el.value)):positive(el.value);save();renderResult();}else if(el.dataset.customer){state.customer[el.dataset.customer]=el.value;$(`[data-customer="${el.dataset.customer}"]`).forEach(other=>{if(other!==el)other.value=el.value;});save();renderPrintInfo();}});
 document.addEventListener('change',e=>{const el=e.target;if(el.dataset.line&&el.dataset.field==='mode'){const ln=state.quote.find(x=>x.id===el.dataset.line);if(!ln)return;ln.mode=el.value==='area'?'area':'dimensions';save();renderQuote();renderResult();}else if(el.id==='discountToggle'){state.discountEnabled=el.checked;save();renderDiscountControls();renderResult();}else if(el.id==='mvaToggle'){state.mva=el.checked;save();renderResult();}});
 $('#importFile').addEventListener('change',e=>importPrices(e.target.files[0]));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#itemModal').hidden)modalClose();});}
-function init(){load();fillCustomer();attach();const printLogo=$('#printBrandLogo');const siteLogo=$('.logo-mark img');if(printLogo&&siteLogo)printLogo.src=siteLogo.src;translate();if(!state.customer.date){state.customer.date=new Date().toISOString().slice(0,10);fillCustomer();save();}renderPrintInfo();notice();const warning=document.getElementById('jsWarning');if(warning)warning.remove();}
+
+function initializeSketchLayout(){
+ const main=$('.main-content'),catalog=$('#catalog'),quote=$('#quote');
+ if(!main||!catalog||!quote)return;
+ const manager=document.createElement('details');
+ manager.className='simple-settings';
+ manager.id='simpleSettings';
+ manager.innerHTML='<summary><span data-t="manageSimple">الإعدادات · إضافة منتج</span><span class="settings-plus">＋</span></summary>';
+ main.insertBefore(manager,catalog);manager.appendChild(catalog);
+ main.insertBefore(manager,quote);
+ const heading=quote.querySelector('.section-heading');
+ if(heading)heading.innerHTML='<div><span class="simple-kicker">FLISLEGGING OSLO</span><h2 id="quoteTitle" data-t="simpleHead">حاسبة البلاط</h2><p class="subheading" data-t="simpleHint">أدخل المساحة أو الكمية والسعر لكل بند</p></div><div class="count-pill"><b id="itemCount">0</b> <span data-t="addedItems">أصناف مضافة</span></div>';
+ const project=document.createElement('label');project.className='simple-project';
+ project.innerHTML='<span data-t="projectSimple">اسم العميل / المشروع</span><input id="simpleProjectName" data-customer="client" type="text" maxlength="350" autocomplete="off" placeholder="..." />';
+ const gridHead=document.createElement('div');gridHead.className='simple-grid-head';gridHead.innerHTML='<span data-t="simpleProduct">البند</span><span data-t="simpleQty">المساحة / الكمية</span><span data-t="simplePrice">سعر الوحدة</span>';
+ const list=$('#quoteLines');list.before(project);list.before(gridHead);
+ main.classList.add('simple-ready');
+}
+function initializeSimpleRows(){
+ let done=false;try{done=localStorage.getItem(SIMPLE_KEY)==='yes'}catch(e){}
+ if(done)return;
+ const added=[];
+ SIMPLE_ROWS.forEach(spec=>{
+  let item=state.catalog.find(x=>x.id===spec.id);
+  if(!item){item={...spec,tileW:60,tileH:60,piecesBox:4,demo:false};state.catalog.push(item);}
+  if(!state.quote.some(x=>x.itemId===item.id)){const line=newLine(item);line.mode='area';line.waste=0;added.push(line);}
+ });
+ state.quote=[...added,...state.quote];save();
+ try{localStorage.setItem(SIMPLE_KEY,'yes')}catch(e){}
+}
+function init(){load();initializeSimpleRows();initializeSketchLayout();fillCustomer();attach();const printLogo=$('#printBrandLogo');const siteLogo=$('.logo-mark img');if(printLogo&&siteLogo)printLogo.src=siteLogo.src;translate();if(!state.customer.date){state.customer.date=new Date().toISOString().slice(0,10);fillCustomer();save();}renderPrintInfo();notice();const warning=document.getElementById('jsWarning');if(warning)warning.remove();}
 init();
 })();
 
